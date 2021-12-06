@@ -15,7 +15,7 @@ s.listen(5)
 today = datetime.date.today()
 filename = str(today) + '_Vibration.txt'
 print('server start at: %s:%s' % (HOST, PORT))
-print('wait for connection...')
+print('wait for connection....')
 
 if os.path.isfile(filename):
     with open(filename, 'r') as f:
