@@ -29,7 +29,7 @@ const int tcpPort = 8787;
 
     Serial.begin(9600);    
     pinMode(LED_BUILTIN,OUTPUT);
-    pinMode(SensorInput,INPUT);
+    //pinMode(SensorInput,INPUT);
     pinMode(RDIF,INPUT);
 //    pinMode(trigPin, OUTPUT);        // 定義輸入及輸出 
 //    pinMode(echoPin, INPUT);
@@ -79,7 +79,7 @@ void loop()
 //    pinMode(echoPin, INPUT);             // 讀取 echo 的電位
 //    duration = pulseIn(echoPin, HIGH);   // 收到高電位時的時間
 
-    cm = (duration/2) / 29.1;
+   // cm = (duration/2) / 29.1;
 
 //    Serial.print("Distance : ");  
 //    //Serial.print(inches);
@@ -100,19 +100,19 @@ void loop()
 //    }
     if(RDIF_state == LOW)
     {
-     client.write('y');
-     state = 0;
+     client.write('x');
+
      delay(1000);
     }
-    if(state!=0)
-    {
-        //times += 1;
-        //byte x = times;
-        //Serial.println();
-        //Serial.println(times);
-      client.write('x');
-      delay(5000);
-    }
+//    if(state!=0)
+//    {
+//        //times += 1;
+//        //byte x = times;
+//        //Serial.println();
+//        //Serial.println(times);
+//      client.write('x');
+//      delay(5000);
+//    }
 //    else if(RDIF_state == HIGH)
 //    {
 //      //Serial.println("Have People");
