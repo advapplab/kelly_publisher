@@ -45,6 +45,7 @@ while True:
             print('recv: ' + indata.decode())
             with open(filename, 'w') as f:
                 f.write(str(num))
+            os.system('python send_data.py &')
         elif indata.decode() == 'y':
             print('Have People !!! ',count)
             count += 1

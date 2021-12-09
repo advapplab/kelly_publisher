@@ -14,7 +14,12 @@ NODE_ID = '444cbfad-250c-4243-a14f-5ea956339702'
 DCCS_KEY = "a56a8afb7d6c9595a1d838a6d95c2dlb"
 DCCS_URL = "http://api-dccs-ensaas.aiot.twcc.ai/"
 EQU = 'Machine 01'
-VALUE = 10
+today = datetime.date.today()
+filename = str(today) + '_Vibration.txt'
+with open(filename, 'r') as f:
+    VALUE  = f.readline()
+    VALUE  = int(VALUE )
+VALUE = 0
 
 def on_connected(edgeAgent, isConnected):
     print("connected !")
