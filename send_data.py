@@ -13,8 +13,8 @@ from wisepaasdatahubedgesdk.Common.Utils import RepeatedTimer
 NODE_ID = '444cbfad-250c-4243-a14f-5ea956339702'
 DCCS_KEY = "a56a8afb7d6c9595a1d838a6d95c2dlb"
 DCCS_URL = "http://api-dccs-ensaas.aiot.twcc.ai/"
-EQU = 'Machine 01'
-VALUE = 10
+EQU = 'Machine 02'
+VALUE = 1
 
 def on_connected(edgeAgent, isConnected):
     print("connected !")
@@ -62,27 +62,32 @@ def __sendData():
 
 def __generateData():
     edgeData = EdgeData()
-    for i in range(1, 1 + 1):
-        for j in range(1, 1 + 1):
-            deviceId = EQU
-            tagName = 'quantity'
-            #   value = random.uniform(0, 100)
-            tag = EdgeTag(deviceId, tagName, VALUE)
-            edgeData.tagList.append(tag)
-            # for j in range(1, 1 + 1):
-            #   deviceId = 'Device' + str(i)
-            #   tagName = 'DTag' + str(j)
-            #   value = random.randint(0,99)
-            #   value = value % 2
-            #   tag = EdgeTag(deviceId, tagName, value)
-            #   edgeData.tagList.append(tag)
-            # for j in range(1, 1 + 1):
-            #   deviceId = 'Device' + str(i)
-            #   tagName = 'TTag' + str(j)
-            #   value = random.uniform(0, 100)
-            #   value = 'TEST ' + str(value)
-            #   tag = EdgeTag(deviceId, tagName, value)
-            #   edgeData.tagList.append(tag)
+    #for i in range(1, 1 + 1):
+        #for j in range(1, 1 + 1):
+    deviceId = EQU
+    tagName = 'ATag'
+    value = int(random.uniform(0, 100))
+    tag = EdgeTag(deviceId, tagName, VALUE)
+    edgeData.tagList.append(tag)
+    # for j in range(1, 1 + 1):
+    deviceId = EQU
+    tagName = 'DTag'
+    value = random.randint(0,99)
+    value = value % 2
+    tag = EdgeTag(deviceId, tagName, VALUE)
+    edgeData.tagList.append(tag)
+
+    d01=datetime.datetime.now()
+    d01tamp = d01.timestamp()
+    d01tamp1 = '{:%Y,%m,%d,%H,%M,%S}'.format(d01)
+    dateString = d01tamp1
+    dateFormatter = "%Y,%m,%d,%H,%M,%S"
+    d1=datetime.datetime.strptime(dateString, dateFormatter)
+    d2=d1.timestamp()
+    d3=datetime.datetime.fromtimestamp(d2)
+    edgeData.timestamp = d3
+
+    print(datetime.datetime.now() - datetime.timedelta(hours=8))
     return edgeData
 
 def __generateConfig():
@@ -95,8 +100,8 @@ def __generateConfig():
                                 deviceType = 'Gearing Machine',
                                 retentionPolicyName = '')
     
-    analog = AnalogTagConfig(name = 'quantity',
-                                description = 'quantity',
+    analog = AnalogTagConfig(name = 'ATag',
+                                description = 'ATag',
                                 readOnly = False,
                                 arraySize = 0,
                                 spanHigh = 1000,
@@ -107,13 +112,13 @@ def __generateConfig():
 
     deviceConfig.analogTagList.append(analog)
 
-#   discrete = DiscreteTagConfig(name = 'DTag1',
-#     description = 'DTag1',
-#     readOnly = False,
-#     arraySize = 0,
-#     state0 = 'Stop',
-#     state1 = 'Start')
-#   deviceConfig.discreteTagList.append(discrete)
+    discrete = DiscreteTagConfig(name = 'DTag',
+                                description = 'DTag1',
+                                readOnly = False,
+                                arraySize = 0,
+                                state0 = 'Stop',
+                                state1 = 'Start')
+    deviceConfig.discreteTagList.append(discrete)
   
 #   text = TextTagConfig(name = 'TTag1',
 #     description = 'TTag1',
@@ -139,8 +144,9 @@ _edgeAgent.connect()
 
 time.sleep(5)  # Waiting for connection to be established
 
-__sendData()
-time.sleep(1)
+for i in range(1, 200):
+    __sendData()
+    time.sleep(1)
 
 # for i in range(1, 2):
     # __sendData()
