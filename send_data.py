@@ -13,8 +13,18 @@ from wisepaasdatahubedgesdk.Common.Utils import RepeatedTimer
 NODE_ID = '444cbfad-250c-4243-a14f-5ea956339702'
 DCCS_KEY = "a56a8afb7d6c9595a1d838a6d95c2dlb"
 DCCS_URL = "http://api-dccs-ensaas.aiot.twcc.ai/"
+<<<<<<< HEAD
 EQU = 'Machine 02'
 VALUE = 1
+=======
+EQU = 'Machine 01'
+today = datetime.date.today()
+filename = str(today) + '_Vibration.txt'
+with open(filename, 'r') as f:
+    VALUE  = f.readline()
+    VALUE  = int(VALUE )
+VALUE = 0
+>>>>>>> fd64e6eee4fea060f1fbc6ad22abfa1cc1a5c5c1
 
 def on_connected(edgeAgent, isConnected):
     print("connected !")
