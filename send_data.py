@@ -4,6 +4,7 @@ import time
 import string
 import random
 import threading
+import sys
 
 from wisepaasdatahubedgesdk.EdgeAgent import EdgeAgent
 import wisepaasdatahubedgesdk.Common.Constants as constant
@@ -13,7 +14,7 @@ from wisepaasdatahubedgesdk.Common.Utils import RepeatedTimer
 NODE_ID = '444cbfad-250c-4243-a14f-5ea956339702'
 DCCS_KEY = "a56a8afb7d6c9595a1d838a6d95c2dlb"
 DCCS_URL = "http://api-dccs-ensaas.aiot.twcc.ai/"
-EQU = 'Machine 02'
+EQU = 'Machine ' + sys.argv[1]
 VALUE = 1
 
 
@@ -145,9 +146,9 @@ _edgeAgent.connect()
 
 time.sleep(5)  # Waiting for connection to be established
 
-for i in range(1, 200):
-    __sendData()
-    time.sleep(1)
+#for i in range(1, 200):
+__sendData()
+time.sleep(1)
 
 # for i in range(1, 2):
     # __sendData()
