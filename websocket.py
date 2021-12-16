@@ -4,16 +4,22 @@ import socket
 import datetime
 import os
 import os.path
+import sys
 
 count = 0
 HOST = '192.168.1.104'
-PORT = 8787
+PORT = int(sys.argv[1])
+machine_num = sys.argv[2]
+print(PORT)
+#PORT = 8787
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind((HOST, PORT))
 s.listen(5)
+exec_command = 'python send_data.py ' + machine_num + ' &'
+print(exec_command)
 today = datetime.date.today()
-filename = str(today) + '_Vibration.txt'
+filename = str(today) + str(PORT) + '_Vibration.txt'
 print('server start at: %s:%s' % (HOST, PORT))
 print('wait for connection....')
 
@@ -41,11 +47,11 @@ while True:
             break
         if indata.decode() == 'x':
             num += 1
-            print('The produce number:' , num)
+            print('Machine: ' + machine_num +' The produce number:' , num)
             print('recv: ' + indata.decode())
             with open(filename, 'w') as f:
                 f.write(str(num))
-            os.system('python send_data.py &')
+            os.system(exec_command)
         elif indata.decode() == 'y':
             print('Have People !!! ',count)
             count += 1
