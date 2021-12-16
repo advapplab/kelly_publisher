@@ -7,7 +7,7 @@ import os.path
 import sys
 
 count = 0
-HOST = '192.168.1.104'
+HOST = '192.168.0.104'
 PORT = int(sys.argv[1])
 machine_num = sys.argv[2]
 print(PORT)
