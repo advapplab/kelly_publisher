@@ -16,7 +16,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind((HOST, PORT))
 s.listen(5)
-exec_command = 'python send_data.py ' + machine_num + ' &'
+exec_command = 'START /B python send_data.py ' + machine_num + ' &'
 print(exec_command)
 today = datetime.date.today()
 filename = str(today) + str(PORT) + '_Vibration.txt'
