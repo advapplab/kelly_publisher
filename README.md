@@ -27,7 +27,7 @@ At the following example, `start03.bat`'s content.
 python websocket.py 8703 03 
 ```
 `8703` the 1st argumnet, which denoted as the port of the 3st equipement.
-`03` the 2st argumnet, which was same as the `python3 send_data.py 03` for the send data.
+`03` the 2st argumnet, which was same as the ```python3 send_data.py 03``` for the send data.
 
 * Machine Port
 
