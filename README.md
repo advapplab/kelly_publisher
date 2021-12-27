@@ -14,8 +14,8 @@ $ python3 send_data.py 02 &
 * How to execute on windows 10
 
 In the repo, you can find `start01.bat`  ~  `start05.bat`. 
-The five `.bat` files stand for running number `01`  ~  `05` of the equipements.
-At the following example, if we want to start detecting the number `3` of the equipements.
+The five `.bat` files stand for running number `01`  ~  `05` of the Equipements.
+In the following example, if we want to start detecting the number `3` of the Equipements.
 We just execute `start03.bat`
 
 
@@ -26,8 +26,8 @@ At the following example, `start03.bat`'s content.
 ```sh
 python websocket.py 8703 03 
 ```
-* `8703` the 1st argumnet, which denoted as the port of the 3st equipement.
-* `03` the 2st argumnet, which was same as the `python send_data.py 03` for sending data.
+* `8703` is the 1st argument, which denoted as the port of the 3rd Equipement.
+* `03` is the 2nd argument, which was the same as the `python send_data.py 03` for sending data.
 
 * Machine Port
 
@@ -38,8 +38,11 @@ Machine 03 : 8703
 Machine 04 : 8704
 Machine 05 : 8705
 ```
-* Run the send data code at the background on Windows 10 as `&` on Linux
+* Run the send data code in the background on Windows 10 as `&` on Linux
 ```
 START /B python send_data.py 03
 ```
 * Machine Host in the current machine on windows 10 should be static IP address `192.168.0.104`
+
+# Sensor
+In the while loop, you can find ` if recv == 'x':`. It means we received a signal called 'x' from the sensor when detection.
