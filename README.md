@@ -42,4 +42,4 @@ Machine 05 : 8705
 ```
 START /B python send_data.py 03
 ```
-
+* Machine Host in the currnet machine on windows 10 should be static IP address `192.168.0.104`
