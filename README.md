@@ -38,4 +38,8 @@ Machine 03 : 8703
 Machine 04 : 8704
 Machine 05 : 8705
 ```
+* Run the send data code at the background on Windows 10 as `&` on Linux
+```
+START /B python send_data.py 03
+```
 
