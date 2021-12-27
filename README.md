@@ -53,3 +53,7 @@ In the while loop, you can find ` if recv == 'x':`. It means we received a signa
 * Timeout Restart
 
 To prevent the connected error's problem. So when didn't detect over `60` seconds, it will restart the program to reconnect. 
+
+# Log
+
+* You can find the log on the `01` ~ `05` of the directory.
