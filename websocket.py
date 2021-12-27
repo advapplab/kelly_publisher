@@ -7,6 +7,9 @@ import os.path
 import sys
 import time
 from datetime import timedelta
+import datetime
+from datetime import datetime
+from datetime import date
 import logging
 from func_timeout import FunctionTimedOut, func_timeout
 
@@ -25,10 +28,10 @@ exec_command = 'START /B python send_data.py ' + str(machine_num)
 #exec_command = 'call python send_data.py ' + machine_num
 #exec_command = 'python send_data.py ' + machine_num + ' &'
 print(exec_command)
-today = datetime.date.today()
-filename = str(today) + str(PORT) + '_Vibration.txt'
+now_time = datetime.now()
+now_time = now_time.strftime("%Y-%m-%d %H-%M-%S")
 FORMAT = '%(asctime)s %(levelname)s: %(message)s'
-logging.basicConfig(level=logging.INFO, filename = 'Machine_' + str(machine_num) + '_log.log', filemode='w', format=FORMAT)
+logging.basicConfig(level=logging.INFO, filename = './' + str(machine_num) + '/Machine_' + str(machine_num) + "_" + now_time + '.log', filemode='w', format=FORMAT)
 print('server start at: %s:%s' % (HOST, PORT))
 print('wait for connection....')
 
@@ -59,6 +62,7 @@ while True:
             recv = indata.decode()
             #print(indata.decode())
         except FunctionTimedOut:
+            logging.info('Machine: ' + str(machine_num) + ' restart')
             restart_program()
             
         if recv == 'x':
