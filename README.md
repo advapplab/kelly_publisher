@@ -27,3 +27,6 @@ Machine 03 : 8703
 Machine 04 : 8704
 Machine 05 : 8705
 ```
+```sh
+python websocket.py 8703 03 
+```
