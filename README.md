@@ -18,3 +18,12 @@ The five `.bat` files stand for running number `01`  ~  `05` of the equipements.
 At the following example, if we want to start detecting the number `3` of the equipements.
 We just execute `start03.bat`
 
+* Machine Port
+
+```
+Machine 01 : 8787
+Machine 02 : 8702
+Machine 03 : 8702
+Machine 04 : 8702
+Machine 05 : 8702
+```
