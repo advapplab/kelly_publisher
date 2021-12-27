@@ -12,4 +12,7 @@ $ python3 send_data.py 02 &
 
 ```
 * How to execute on windows 10
-In the repo, you can find `start01.bat` ~ `start05.bat`. The five `.bat` files stand for running number `01` ~ `05` of the equipements.
+In the repo, you can find `start01.bat`  ~  `start05.bat`. 
+The five `.bat` files stand for running number `01`  ~  `05` of the equipements.
+At the following example, if we want to start detecting the number `3` of the the equipements.
+We just execute `start03.bat`
