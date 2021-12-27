@@ -47,7 +47,9 @@ START /B python send_data.py 03
 # Sensor
 
 * Signal Received
+
 In the while loop, you can find ` if recv == 'x':`. It means we received a signal called `'x'` from the sensor when detection.
 
 * Timeout Restart
+
 To prevent the connected error's problem. So when didn't detect over 60 seconds, it will restart the program to reconnect. 
