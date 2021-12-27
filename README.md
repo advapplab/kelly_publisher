@@ -1,4 +1,3 @@
-# kelly_publisher
 
 # Execution
 
