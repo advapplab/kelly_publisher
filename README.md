@@ -45,4 +45,4 @@ START /B python send_data.py 03
 * Machine Host in the current machine on windows 10 should be static IP address `192.168.0.104`
 
 # Sensor
-In the while loop, you can find ` if recv == 'x':`. It means we received a signal called 'x' from the sensor when detection.
+In the while loop, you can find ` if recv == 'x':`. It means we received a signal called `'x'` from the sensor when detection.
