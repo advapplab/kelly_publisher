@@ -11,3 +11,5 @@ On the other hand, to make sure the connection has been established, every run w
 $ python3 send_data.py 02 &
 
 ```
+* How to execute on windows 10
+In the repo, you can find `start01.bat` ~ `start05.bat`. The five `.bat` files stand for running number `01` ~ `05` of the equipements.
