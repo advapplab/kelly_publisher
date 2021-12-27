@@ -7,6 +7,8 @@ import os.path
 import sys
 import time
 from datetime import timedelta
+import logging
+from func_timeout import FunctionTimedOut, func_timeout
 
 count = 0
 HOST = '192.168.0.104'
@@ -19,11 +21,14 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind((HOST, PORT))
 s.listen(5)
-exec_command = 'START /B python send_data.py ' + machine_num + ' &'
+exec_command = 'START /B python send_data.py ' + str(machine_num)
+#exec_command = 'call python send_data.py ' + machine_num
 #exec_command = 'python send_data.py ' + machine_num + ' &'
 print(exec_command)
 today = datetime.date.today()
 filename = str(today) + str(PORT) + '_Vibration.txt'
+FORMAT = '%(asctime)s %(levelname)s: %(message)s'
+logging.basicConfig(level=logging.INFO, filename = 'Machine_' + str(machine_num) + '_log.log', filemode='w', format=FORMAT)
 print('server start at: %s:%s' % (HOST, PORT))
 print('wait for connection....')
 
@@ -39,28 +44,36 @@ else:
         f.write(str(num))
     print('cannt find the log')  
 '''
+def restart_program():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+    
 
 while True:
     conn, addr = s.accept()
     print('connected by ' + str(addr))
     while True:
-        indata = conn.recv(1024)
-        '''
-        if len(indata) == 0: # connection closed
-            conn.close()
-            print('client closed connection.')
-            break
-        '''
-        if indata.decode() == 'x':
+        #indata = conn.recv(1024)
+        try:
+            indata = func_timeout(60, lambda: conn.recv(1024))
+            recv = indata.decode()
+            #print(indata.decode())
+        except FunctionTimedOut:
+            restart_program()
+            
+        if recv == 'x':
             #num += 1
+            #os.popen(exec_command,'r',0)
+            logging.info('Machine: ' + str(machine_num) + ' is working')
             print('Machine: ' + machine_num +' is working')
             print('recv: ' + indata.decode())
             '''
             with open(filename, 'w') as f:
                 f.write(str(num))
             '''
-            os.system(exec_command)
+            #os.system(exec_command)
             conn.close()
+            os.system(exec_command)
             break
         '''
         if ConnectionResetError:
