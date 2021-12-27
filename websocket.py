@@ -31,7 +31,7 @@ print(exec_command)
 now_time = datetime.now()
 now_time = now_time.strftime("%Y-%m-%d %H-%M-%S")
 FORMAT = '%(asctime)s %(levelname)s: %(message)s'
-logging.basicConfig(level=logging.INFO, filename = './' + str(machine_num) + '/Machine_' + str(machine_num) + "_" + now_time + '.log', filemode='w', format=FORMAT)
+logging.basicConfig(level=logging.INFO, filename = './' + str(machine_num) + '/Machine_' + str(machine_num) + " " + now_time + '.log', filemode='w', format=FORMAT)
 print('server start at: %s:%s' % (HOST, PORT))
 print('wait for connection....')
 
