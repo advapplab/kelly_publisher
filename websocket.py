@@ -58,7 +58,7 @@ while True:
     while True:
         #indata = conn.recv(1024)
         try:
-            indata = func_timeout(60, lambda: conn.recv(1024))
+            indata = func_timeout(0, lambda: conn.recv(1024))
             recv = indata.decode()
             #print(indata.decode())
         except FunctionTimedOut:
