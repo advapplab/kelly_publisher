@@ -89,7 +89,8 @@ def __generateData():
     d3=datetime.datetime.fromtimestamp(d2)
     edgeData.timestamp = d3
 
-    print(datetime.datetime.now() - datetime.timedelta(hours=8))
+    #print(datetime.datetime.now() - datetime.timedelta(hours=8))
+    print(datetime.datetime.now())
     return edgeData
 
 def __generateConfig():

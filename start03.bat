@@ -1,1 +1,1 @@
-call python websocket.py 8703 03 
+call START /B python websocket.py 8703 03 

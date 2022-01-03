@@ -12,6 +12,7 @@ from datetime import datetime
 from datetime import date
 import logging
 from func_timeout import FunctionTimedOut, func_timeout
+import psutil
 
 count = 0
 HOST = '192.168.0.104'
@@ -45,8 +46,20 @@ else:
     num = 0
     with open(filename, 'w') as f:
         f.write(str(num))
-    print('cannt find the log')  
+    print('cannt find the log')
 '''
+pid_num = str(os.getpid())
+
+proc_info = ""
+for proc in psutil.process_iter():
+    proc = str(proc)
+    if 'pid='+pid_num+', name=\'python.exe\'' in proc:
+        proc_info = str(proc)
+
+Process_ID = './Process_Id/' + 'Machine_' + str(machine_num) + '_Process_Id.txt'
+with open(Process_ID, "w") as text_file:
+    text_file.write(str(proc_info))
+    
 def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
@@ -58,7 +71,7 @@ while True:
     while True:
         #indata = conn.recv(1024)
         try:
-            indata = func_timeout(0, lambda: conn.recv(1024))
+            indata = func_timeout(3600, lambda: conn.recv(1024))
             recv = indata.decode()
             #print(indata.decode())
         except FunctionTimedOut:
