@@ -19,6 +19,10 @@ In the following example, if we want to start detecting the number `3` of the Eq
 We just execute `start03.bat`
 
 
+* Process
+```sh
+python machine_process.py 8703 03 
+```
 * Argument
 
 At the following example, `start03.bat`'s content.
