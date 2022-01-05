@@ -21,7 +21,7 @@ We just execute `start03.bat`
 
 * Process
 ```sh
-python machine_process.py 8703 03 
+process 8703 03 
 ```
 * Argument
 
