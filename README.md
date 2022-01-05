@@ -21,7 +21,7 @@ We just execute `start03.bat`
 
 * Process
 ```sh
-process 8703 03 
+process.bat 8703 03 
 ```
 * Argument
 
