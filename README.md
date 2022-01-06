@@ -21,6 +21,9 @@ We just execute `start03.bat`
 
 * Process
 ```sh
+process.bat $PROT $Machine_number 
+```
+```sh
 process.bat 8703 03 
 ```
 * Argument
