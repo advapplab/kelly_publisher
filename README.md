@@ -18,11 +18,34 @@ The five `.bat` files stand for running number `01`  ~  `05` of the Equipements.
 In the following example, if we want to start detecting the number `3` of the Equipements.
 We just execute `start03.bat`
 
+* Machine Port
 
-* Process
+```
+Machine 01 : 8787
+Machine 02 : 8702
+Machine 03 : 8703
+Machine 04 : 8704
+Machine 05 : 8705
+```
+
+* Machine Number
+
+```
+Machine 01 : 01
+Machine 02 : 02
+Machine 03 : 03
+Machine 04 : 04
+Machine 05 : 05
+```
+
+* Implement Process
+
+```process.bat``` -> ```machine_process.py``` -> ```websocket.py```
+* To execute ```process.bat```
 ```sh
 process.bat $PROT $Machine_number 
 ```
+At the following example, to execute `Machine 03`.
 ```sh
 process.bat 8703 03 
 ```
@@ -36,15 +59,6 @@ python websocket.py 8703 03
 * `8703` is the 1st argument, which denoted as the port of the 3rd Equipement.
 * `03` is the 2nd argument, which was the same as the `python send_data.py 03` for sending data.
 
-* Machine Port
-
-```
-Machine 01 : 8787
-Machine 02 : 8702
-Machine 03 : 8703
-Machine 04 : 8704
-Machine 05 : 8705
-```
 * Run the send data code in the background on Windows 10 as `&` on Linux
 ```
 START /B python send_data.py 03
