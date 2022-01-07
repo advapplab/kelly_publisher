@@ -61,9 +61,9 @@ with open(Process_ID, "w") as text_file:
     text_file.write(str(proc_info))
     
 def restart_program():
-    python = sys.executable
-    os.execl(python, python, * sys.argv)
-    
+    #python = sys.executable
+    #os.execl(python, python, * sys.argv)
+    os._exit(0)
 
 while True:
     conn, addr = s.accept()
