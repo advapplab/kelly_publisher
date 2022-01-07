@@ -93,10 +93,72 @@ To prevent the connected error's problem. So when didn't detect over `300` secon
   
   [IRS-180](http://www.ho-hua.com.tw/products_data.php?pid=15081)
   
+  Output : D5
+  
 * Files
- 
-  |- [nodeMcu.ino](https://github.com/advapplab/kelly_publisher/blob/main/nodeMcu.ino)
-  |- [esp32_wifi.ino](https://github.com/advapplab/kelly_publisher/blob/main/esp32_wifi.ino)
+  
+  [esp32_wifi.ino](https://github.com/advapplab/kelly_publisher/blob/main/esp32_wifi.ino)
+  
+  [nodeMcu.ino](https://github.com/advapplab/kelly_publisher/blob/main/nodeMcu.ino)
+  
+* Board Libray
+
+  ESP32
+  
+  https://dl.espressif.com/dl/package_esp32_index.json
+  
+  NodeMcu (ESP8266)
+  
+  http://arduino.esp8266.com/stable/package_esp8266com_index.json 
+  
+  FIle -> Preference -> Additional Boards Manager URLs:
+  
+  Take the two libray link to add to Additional Boards Manager URLs
+  
+  ![image](https://github.com/advapplab/kelly_publisher/blob/main/image/0.png)
+  
+* Boards Manager
+
+  Tools -> Board -> Boards Manager
+  
+  ![image](https://github.com/advapplab/kelly_publisher/blob/main/image/1.png)
+  
+  Input the words that `esp32` and `esp8266` at the space separately, and install the libs.
+  
+  ![image](https://github.com/advapplab/kelly_publisher/blob/main/image/2.png)
+  
+  ![image](https://github.com/advapplab/kelly_publisher/blob/main/image/3.png)
+
+* Select Board
+
+  Tools -> Board 
+  
+  Tools -> Port
+  
+  If you want to use `DOIT ESP32 DEVKIT V1`
+  
+  From `ESP32 Arudino` to find the board : `DOIT ESP32 DEVKIT V1`
+  
+  If you want to use `NodeMcu 1.0`
+  
+  From `ESP8266 Modules` to find the board : `NodeMcu 1.0`
+  
+* Change TCP PORT
+  
+  ```
+  Machine 01 : 8787
+  Machine 02 : 8702
+  Machine 03 : 8703
+  Machine 04 : 8704
+  Machine 05 : 8705
+  ```
+  ![image](https://github.com/advapplab/kelly_publisher/blob/main/image/4.png)
+
+
+  
+  
+  
+  
   
  
 
