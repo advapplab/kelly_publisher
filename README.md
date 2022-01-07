@@ -78,3 +78,19 @@ To prevent the connected error's problem. So when didn't detect over `300` secon
 # Log
 
 * You can find the log on the `01` ~ `05` of the directory.
+
+# Arduino Manual
+
+* [Software Download](https://www.arduino.cc/en/software)
+
+* Board
+
+  [DOIT ESP32 DEVKIT V1](http://www.ho-hua.com.tw/products_data.php?pid=16491)
+
+  [NodeMcu 1.0 (ESP8266)](http://www.ho-hua.com.tw/products_data.php?pid=16490)
+  
+* Sensor 
+  
+  [IRS-180](http://www.ho-hua.com.tw/products_data.php?pid=15081)
+ 
+
