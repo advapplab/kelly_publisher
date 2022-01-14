@@ -64,6 +64,7 @@ def restart_program():
     #python = sys.executable
     #os.execl(python, python, * sys.argv)
     os._exit(0)
+    
 
 while True:
     conn, addr = s.accept()
@@ -71,7 +72,7 @@ while True:
     while True:
         #indata = conn.recv(1024)
         try:
-            indata = func_timeout(3600, lambda: conn.recv(1024))
+            indata = func_timeout(300, lambda: conn.recv(1024))
             recv = indata.decode()
             #print(indata.decode())
         except FunctionTimedOut:
