@@ -69,7 +69,8 @@ START /B python send_data.py 03
 
 * Signal Received
 
-In the while loop, you can find ` if recv == 'x':`. It means we received a signal called `'x'` from the sensor when detection.
+In the while loop, you can find ` if recv == 'x':`. It means we received a signal called `'x'` from the sensor when detection
+* https://github.com/advapplab/kelly_publisher/blob/main/websocket.py#L82
 
 * Timeout Restart
 
