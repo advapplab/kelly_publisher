@@ -74,6 +74,7 @@ In the while loop, you can find ` if recv == 'x':`. It means we received a signa
 * Timeout Restart
 
 To prevent the connected error's problem. So when didn't detect over `300` seconds, it will restart the program to reconnect. 
+* https://github.com/advapplab/kelly_publisher/blob/main/websocket.py#L75
 
 # Log
 
